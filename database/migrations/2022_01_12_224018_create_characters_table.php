@@ -19,7 +19,7 @@ class CreateCharactersTable extends Migration
             $table->unsignedInteger('age')->comment('年齢');
             $table->unsignedInteger('hp')->comment('HP');
             $table->unsignedInteger('mp')->comment('MP');
-            $table->unsignedBigInteger('job_id')->comment('ジョブID');
+            $table->unsignedBigInteger('job_id')->index()->comment('ジョブID');
             $table->timestamps();
             // 外部キー制約
             $table->foreign('job_id')->references('id')->on('jobs');
