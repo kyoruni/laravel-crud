@@ -14,8 +14,15 @@ class CreateCharactersTable extends Migration
     public function up()
     {
         Schema::create('characters', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id')->comment('ID');
+            $table->string('name', 30)->unique()->comment('キャラクター名');
+            $table->unsignedInteger('age')->comment('年齢');
+            $table->unsignedInteger('hp')->comment('HP');
+            $table->unsignedInteger('mp')->comment('MP');
+            $table->unsignedBigInteger('job_id')->comment('ジョブID');
             $table->timestamps();
+            // 外部キー制約
+            $table->foreign('job_id')->references('id')->on('jobs');
         });
     }
 
