@@ -14,7 +14,8 @@ class CreateJobsTable extends Migration
     public function up()
     {
         Schema::create('jobs', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id')->comment('ID');
+            $table->string('name', 30)->unique()->comment('ジョブ名');
             $table->timestamps();
         });
     }
