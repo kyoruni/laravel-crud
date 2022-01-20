@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Job extends Model
 {
-    public function character()
+    public function characters()
     {
-        return $this->hasOne(Character::class);
+        return $this->hasMany(Character::class);
     }
 }
