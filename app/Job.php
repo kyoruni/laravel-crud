@@ -8,6 +8,6 @@ class Job extends Model
 {
     public function character()
     {
-        return $this->belongsTo(Character::class);
+        return $this->hasOne(Character::class);
     }
 }
